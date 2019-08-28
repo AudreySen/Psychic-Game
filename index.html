@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>AS-Psychic-Game</title>
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,29 +17,21 @@
         <h1>The Psychic Game</h1>
     </header>
 
-    <p>Guess what letter I'm thinking of:</p>
-    <p>Wins: (# of times the user has guessed the letter correctly)</p>
-    <p>Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)</p>
-    <p>Guesses Left: (# of guesses left. This will update)</p>
-    <p>Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)</p>
+    <p>Guess what letter I'm thinking of: <span id="letter"></span></p>
+    <p>Wins (# of times the user has guessed the letter correctly) : <span id="wins"></span></p>
+    <p>Losses (# of times the user has failed to guess the letter correctly after exhausting all guesses) : <span id="losses"></span></p>
+    <p>Guesses Left (# of guesses left. This will update) : <span id="left"></span></p>
+    <p>Your Guesses So Far (the specific letters that the user typed. Display these until the user either wins or loses.) : <span id="lettersTried"></span></p>
 
 
-    <!-- <section class="main-section">
-
-
-    </section> -->
-
-
-    <!-- jQuery, javascript file for the Bootstrap's javascript file to function
+    <!-- Java script's link -->
+    <script src="./assets/javascript/game.js"></script>
+    <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    Bootstrap's javascript file that allows the dropdown menu to work 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <footer>
-
-
-    </footer>
 </body>
 
 </html>

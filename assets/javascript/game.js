@@ -14,13 +14,17 @@ document.onkeyup = function(event) {
 
     if (event.key === computerLetter) {
         console.log("Correct");
-        choicesLeft = choicesLeft - 1;
+        choicesLeft = 10;
         wins = wins + 1;
+
     }
     if (event.key !== computerLetter) {
         console.log("Wrong");
         choicesLeft = choicesLeft - 1;
-        losses = losses - 1;
+        if (choicesLeft = 0) {
+            losses = losses + 1;
+            choicesLeft = 10;
+        }
     }
     console.log(choicesLeft);
 }

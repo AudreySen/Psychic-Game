@@ -5,11 +5,11 @@ var lossesOnScreen = document.getElementById('losses');
 var leftOnScreen = document.getElementById("left");
 var lettersTried = document.getElementById("lettersTried");
 
-
 //The player has ten choices left:
 var choicesLeft = 10;
 var wins = 0;
 var losses = 0;
+var guessesMade = [];
 
 //This line of code prints on the screen the number of wins when the game started, which is 0:
 winsOnScreen.textContent = wins;
@@ -28,32 +28,39 @@ leftOnScreen.textContent = choicesLeft;
 
 //This block of code runs whenever we are done pressing a key:
 document.onkeyup = function(e) {
-        //This writes the chosen letter on the screen:
-        console.log(e);
-        letterOnScreen.textContent = e.key;
-        //This if statement says that if the letter the player has chosen is the same that the one chosen by the computer, the player win: 
-        if (e.key === computerLetter) {
-            console.log("Correct");
-            wins = wins + 1;
-            winsOnScreen.textContent = wins;
-            //I call the function resetGame to reset the score:
-            resetGame();
-        }
-        //This if statement says that if the letter the player has chosen is the same that the one chosen by the computer, the player lose:
-        if (e.key !== computerLetter) {
-            console.log("Wrong");
-            choicesLeft = choicesLeft - 1;
-            leftOnScreen.textContent = choicesLeft;
-            if (choicesLeft === 0) {
-                losses = losses + 1;
-                choicesLeft = 10;
-                //This ligne of code prints on screen how many losses the player has:
-                lossesOnScreen.textContent = losses;
+        // If statement which checks letters already pressed [point exclamation pour la negation]:
+        if (!guessesMade.includes(e.key)) {
+
+            //This writes the chosen letter on the screen:
+            console.log(e);
+            letterOnScreen.textContent = e.key;
+            //This if statement says that if the letter the player has chosen is the same that the one chosen by the computer, the player win: 
+            if (e.key === computerLetter) {
+                console.log("Correct");
+                wins = wins + 1;
+                winsOnScreen.textContent = wins;
                 //I call the function resetGame to reset the score:
                 resetGame();
             }
-        }
-        console.log(choicesLeft);
+            //This if statement says that if the letter the player has chosen is the same that the one chosen by the computer, the player lose:
+            if (e.key !== computerLetter) {
+                console.log("Wrong");
+                choicesLeft = choicesLeft - 1;
+                leftOnScreen.textContent = choicesLeft;
+                if (choicesLeft === 0) {
+                    losses = losses + 1;
+                    choicesLeft = 10;
+                    //This ligne of code prints on screen how many losses the player has:
+                    lossesOnScreen.textContent = losses;
+                    //I call the function resetGame to reset the score:
+                    resetGame();
+                }
+            }
+            // Push method for arrays chaque fois que le joueur presse une touche, la lettre s'affiche a l'ecran:
+            guessesMade.push(e.key);
+            lettersTried.textContent = guessesMade;
+            // Window which pop up each time I press the same key twice:
+        } else { alert("This key has already been pressed"); }
     }
     //This function reset the game to 10:
 function resetGame() {

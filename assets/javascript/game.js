@@ -1,4 +1,4 @@
-//Those variables are pointing to the differents id of the page :
+//Those variables are pointing to different id of the page :
 var letterOnScreen = document.getElementById("letter");
 var winsOnScreen = document.getElementById("wins");
 var lossesOnScreen = document.getElementById('losses');
